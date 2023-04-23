@@ -1,0 +1,83 @@
+{
+  "login": [
+    {
+      "id": 1,
+      "name": "Joselito",
+      "accessToken": "CODIGLO_DO_JWTEI"
+    }
+  ],
+  "dashboard": [
+    {
+      "id": 1,
+      "title": "First Post",
+      "content": "Hello World!",
+      "author": "Joselito",
+      "date": "2020-01-01",
+      "tags": [
+        "hello",
+        "world"
+      ],
+      "comments": [
+        {
+          "author": "Joselito",
+          "content": "Hello World!",
+          "date": "2020-01-01"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Second Post",
+      "content": "Hello Mars!",
+      "author": "Joselito",
+      "date": "2020-01-01",
+      "tags": [
+        "hello",
+        "world"
+      ],
+      "comments": [
+        {
+          "author": "Joselito",
+          "content": "Hello World!",
+          "date": "2020-01-01"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Third Post",
+      "content": "Hello Jupiter!",
+      "author": "Joselito",
+      "date": "2020-01-01",
+      "tags": [
+        "hello",
+        "world"
+      ],
+      "comments": [
+        {
+          "author": "Joselito",
+          "content": "Hello World!",
+          "date": "2020-01-01"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Fourth Post",
+      "content": "Hello Saturn!",
+      "author": "Joselito",
+      "date": "2020-01-01",
+      "tags": [
+        "hello",
+        "world"
+      ],
+      "comments": [
+        {
+          "author": "Joselito",
+          "content": "Hello World!",
+          "date": "2020-01-01"
+        },
+      ]
+    }
+  ]
+}
