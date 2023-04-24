@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const loginForm = document.getElementById('login-form');
     const dashboardContent = document.getElementById('dashboard-content');
-    const authenticationService = new AuthenticationService('https://my-json-server.typicode.com/');
+    const authenticationService = new AuthenticationService('https://my-json-server.typicode.com/shuhikari/junis-sandbox-fake-api');
 
     if (loginForm) {
         loginForm.addEventListener('submit', async (event) => {
@@ -27,10 +27,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
         authenticationService.listDashboardContent(token)
             .then(content => {
-                dashboardContent.innerHTML = content;
+                console.log('Content', content);
+                content.forEach((item) => {
+                    const content = `
+                        <div class="item" id="${item.id}">
+                        <h2 class="item-title">${item.title}</h2>
+                        <div class="item-description">${item.content}</div>
+                        <span class="item-author" style="font-size:small">Autor: ${item.author}</span>
+                        </div>
+                        <br />
+                    `
+                    const itemElement = createCustomHtmlElement('div', item.id, 'item', content);
+
+                    dashboardContent.appendChild(itemElement)
+                })
+
             })
             .catch(error => {
+                console.error(error.message);
                 alert('Failed to load dashboard content. Please try again.');
             });
     }
 });
+
+function createCustomHtmlElement(elementType, elementId, elementClass, elementContent) {
+    console.log('Creating element', elementType, elementId, elementClass, elementContent);
+    const element = document.createElement(elementType);
+    element.id = elementId;
+    element.className = elementClass;
+    element.innerHTML = elementContent;
+    return element;
+}

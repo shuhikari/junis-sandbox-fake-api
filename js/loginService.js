@@ -17,10 +17,19 @@ class AuthenticationService {
                 throw new Error('Login failed');
             }
 
-            const data = await response.json();
-            console.log('Retorno da API', data);
-            const { accessToken } = data;
-            return accessToken
+            const accessTokenResponse = await fetch(`${this.apiUrl}/login`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+            });
+
+            const postData = await response.json();
+            const accessTokenData = await accessTokenResponse.json();
+            console.log('Retorno da API', postData);
+            console.log('Retorno do Login', accessTokenData);
+            const { accessToken } = accessTokenData;
+            return accessToken;
         } catch (error) {
             console.error(error);
             throw error;
@@ -29,7 +38,7 @@ class AuthenticationService {
 
     async listDashboardContent(token) {
         try {
-            const response = await fetch(`${this.apiUrl}/order`, {
+            const response = await fetch(`${this.apiUrl}/dashboard`, {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -42,7 +51,7 @@ class AuthenticationService {
 
             const data = await response.json();
             console.log('Order Content', data);
-            return data.content;
+            return data;
         } catch (error) {
             console.error(error);
             throw error;
